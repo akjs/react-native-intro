@@ -2,4 +2,17 @@
   height: 100%;
   width: 90%;
   padding: 1rem;
+  text-align: center;
+
+  img.medium {
+    width:50%;
+  }
+
+  img.big {
+    width: 70%;
+  }
+
+  pre {
+    text-align: left;
+  }
 }

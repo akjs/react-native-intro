@@ -63,9 +63,29 @@ $primary-invert: $pink-invert;
 
 // 4. Import the rest of Bulma
 
+*/
+$yellowCol: #fd0;
+$blue: #06bcef;
+// Add pink and its invert
+$pink: #ff8080;
+$pink-invert: #fff;
+// Update the sans-serif font family
+$family-sans-serif: "Helvetica", "Arial", sans-serif;
+
+// 3. Set the derived variables
+// Use the new pink as the primary color
+$primary: $yellowCol;
+$primary-invert: $pink-invert;
+$white-ter: $yellowCol;
+
+
+$color: #000;
+$body-background-color: $yellowCol;
+$background: $yellowCol;
+$body-color: #000;
 
 @import "../../../node_modules/bulma/bulma";
-*/
+
 #root {
   position: absolute;
   top: 0;
@@ -80,7 +100,4 @@ $primary-invert: $pink-invert;
   flex: 1;
 }
 
-body {
-  background: #fd0;
-  color: #000;
-}
+

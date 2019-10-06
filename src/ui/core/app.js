@@ -20,6 +20,7 @@ const components = {
 }
 const nextKey = 'ArrowRight'
 const backKey = 'ArrowLeft'
+
 const SlideHolder = ({ component: Component, next, ...props }) => {
   const onKeyPressEventHandler = e => {
     console.log('e.key', e.key)
@@ -27,7 +28,8 @@ const SlideHolder = ({ component: Component, next, ...props }) => {
       navigate(`/${next}`, { state: { move: 'forward' } })
     }
     if (e.key === backKey) {
-      navigate(`/${next - 2}`, { state: { move: 'back' } })
+      const backNum = next - 2 > 0 ? next - 2 : 1
+      navigate(`/${backNum}`, { state: { move: 'back' } })
     }
   }
 
@@ -40,6 +42,7 @@ const SlideHolder = ({ component: Component, next, ...props }) => {
   return (
     <div className="slide">
       <Component {...props} />
+      {/*
       <Button
         onClick={e => {
           navigate(`/${next - 2}`, { state: { move: 'back' } })
@@ -54,6 +57,7 @@ const SlideHolder = ({ component: Component, next, ...props }) => {
       >
         Next
       </Button>
+      */}
     </div>
   )
 }
@@ -99,7 +103,6 @@ const App = () => {
           <SlideHolder path="/2" component={SecondSlide} next={3} />
           <SlideHolder path="/3" component={ThirdSlide} next={4} />
           <SlideHolder path="/4" component={FourthSlide} next={1} />
-          <Redirect to="/" from="/0" />
         </SlideTransitionRouter>
       </React.Suspense>
     </MDXProvider>
