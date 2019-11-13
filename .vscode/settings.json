@@ -68,6 +68,14 @@
       ],
       "filename": true,
       "format": "svg"
-    }
+    },
+    {
+      "icon": "mdx",
+      "extensions": [
+        "mdx"
+      ],
+      "filename": true,
+      "format": "svg"
+    },
   ]
 }

@@ -1,23 +1,20 @@
-
-
-
 @charset "utf-8";
 @import "../../../node_modules/bulma/sass/utilities/initial-variables";
 
 /* Color Theme Swatches in Hex */
-$Color-Theme-Dark: #00205D;
+$Color-Theme-Dark: #00205d;
 $Color-Theme-Blue: #003292;
-$Color-Theme-Yellow: #FBC100;
-$Color-Theme-Orange: #FF7B00;
-$Color-Theme-Red: #ED0000;
+$Color-Theme-Yellow: #fbc100;
+$Color-Theme-Orange: #ff7b00;
+$Color-Theme-Red: #ed0000;
 $Color-Theme-Green: #025930;
 
 /* Color Theme Swatches in RGBA */
-$Color-Theme-7-1-rgba: rgba(0,31,92, 1);
-$Color-Theme-7-2-rgba: rgba(0,50,145, 1);
-$Color-Theme-7-3-rgba: rgba(251,192,0, 1);
-$Color-Theme-7-4-rgba: rgba(255,123,0, 1);
-$Color-Theme-7-5-rgba: rgba(237,0,0, 1);
+$Color-Theme-7-1-rgba: rgba(0, 31, 92, 1);
+$Color-Theme-7-2-rgba: rgba(0, 50, 145, 1);
+$Color-Theme-7-3-rgba: rgba(251, 192, 0, 1);
+$Color-Theme-7-4-rgba: rgba(255, 123, 0, 1);
+$Color-Theme-7-5-rgba: rgba(237, 0, 0, 1);
 
 /* Color Theme Swatches in HSLA */
 $Color-Theme-7-1-hsla: hsla(219, 100, 18, 1);
@@ -78,7 +75,6 @@ $primary: $yellowCol;
 $primary-invert: $pink-invert;
 $white-ter: $yellowCol;
 
-
 $color: #000;
 $body-background-color: $yellowCol;
 $background: $yellowCol;
@@ -95,9 +91,11 @@ $body-color: #000;
   display: flex;
   flex-direction: column;
 }
-#root > div , #root > div > div {
+#root > div,
+#root > div > div {
   height: 100%;
   flex: 1;
 }
-
-
+iframe[data-snack-iframe] {
+  height: 500px;
+}

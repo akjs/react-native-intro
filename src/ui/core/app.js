@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Router, Location, navigate, Redirect } from '@reach/router'
 import classnames from 'classnames'
-import { Button } from '@brightleaf/elements'
+import { Button, Title } from '@brightleaf/elements'
 import { MDXProvider } from '@mdx-js/react'
 import { useStyleSheet, useStyles } from '@brightleaf/react-hooks'
 import Home from '../features/home'
@@ -9,21 +9,26 @@ import FirstSlide from '../slides/001.mdx'
 import SecondSlide from '../slides/002.mdx'
 import ThirdSlide from '../slides/003.mdx'
 import FourthSlide from '../slides/004.mdx'
-import CodeBlock from '../components/code-block'
+import FifthSlide from '../slides/005.mdx'
+import SixthSlide from '../slides/006.mdx'
+
+// import CodeBlock from '../components/code-block'
 import './app.scss'
 import './animate.scss'
 import './slide.scss'
 
 const components = {
+  h1: Title,
+  /*
   pre: props => <div {...props} />,
   code: CodeBlock,
+  */
 }
 const nextKey = 'ArrowRight'
 const backKey = 'ArrowLeft'
 
 const SlideHolder = ({ component: Component, next, ...props }) => {
   const onKeyPressEventHandler = e => {
-    console.log('e.key', e.key)
     if (e.key === nextKey) {
       navigate(`/${next}`, { state: { move: 'forward' } })
     }
@@ -35,6 +40,12 @@ const SlideHolder = ({ component: Component, next, ...props }) => {
 
   useEffect(() => {
     window.addEventListener('keydown', onKeyPressEventHandler)
+    if (window.ExpoSnack) {
+      setTimeout(() => {
+        window.ExpoSnack.initialize()
+      }, 100)
+    }
+
     return () => {
       window.removeEventListener('keydown', onKeyPressEventHandler)
     }
@@ -42,22 +53,6 @@ const SlideHolder = ({ component: Component, next, ...props }) => {
   return (
     <div className="slide">
       <Component {...props} />
-      {/*
-      <Button
-        onClick={e => {
-          navigate(`/${next - 2}`, { state: { move: 'back' } })
-        }}
-      >
-        Back
-      </Button>
-      <Button
-        onClick={e => {
-          navigate(`/${next}`, { state: { move: 'forward' } })
-        }}
-      >
-        Next
-      </Button>
-      */}
     </div>
   )
 }
@@ -102,7 +97,9 @@ const App = () => {
           <SlideHolder path="/1" component={FirstSlide} next={2} />
           <SlideHolder path="/2" component={SecondSlide} next={3} />
           <SlideHolder path="/3" component={ThirdSlide} next={4} />
-          <SlideHolder path="/4" component={FourthSlide} next={1} />
+          <SlideHolder path="/4" component={FourthSlide} next={5} />
+          <SlideHolder path="/5" component={FifthSlide} next={6} />
+          <SlideHolder path="/6" component={SixthSlide} next={1} />
         </SlideTransitionRouter>
       </React.Suspense>
     </MDXProvider>
