@@ -1,15 +1,3 @@
-# My Custom App
+# React Native Intro
 
-```
-- docker
-- src
--- server
---- models
---- public
---- routes
--- ui
---- core
---- features
-
-```
 
